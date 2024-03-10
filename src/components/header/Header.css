@@ -1,0 +1,37 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    
+    
+}
+
+.Navbar{
+    display: flex;
+    list-style: none;
+    font-size: large;
+    margin-bottom: 100px;
+    color: whitesmoke;
+    
+
+    
+}
+
+.Navbar .li{
+    margin-left: 100px;
+    margin-right: 100px;
+    background: rgb(44, 44, 173);
+    padding: 15px;
+    border-radius: 30px;
+    width: 100px;
+    text-align: center;
+    color: whitesmoke;
+    border: 3px solid whitesmoke;
+    
+}
+
+.logo{
+    width: 150px;
+    margin-left: 130px;
+}
