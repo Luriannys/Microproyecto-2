@@ -3,7 +3,7 @@ const logo = 'src/assets/89-896782_gamer-png.png'
 import { FaUser } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
 import { SiGmail } from "react-icons/si"
-import appFirebase from 'C:/Users/Usuario/Desktop/Sistemas de Información/Microproyecto-2/firebase.js'
+import appFirebase from '../../credenciales.js'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 const auth = getAuth(appFirebase)
 

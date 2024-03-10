@@ -2,7 +2,7 @@ import './Login.css'
 import { FaUser } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import appFirebase from 'C:/Users/Usuario/Desktop/Sistemas de Información/Microproyecto-2/firebase.js'
+import appFirebase from '../../credenciales.js'
 const auth = getAuth(appFirebase)
 
 const functAutentication = async (e) => {
