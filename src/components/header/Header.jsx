@@ -1,5 +1,5 @@
 import './Header.css'
-const logo = 'https://www.pngkey.com/png/full/89-896782_gamer-png.png'
+const logo = 'src/assets/89-896782_gamer-png.png'
 
 
 const Header = () => {
