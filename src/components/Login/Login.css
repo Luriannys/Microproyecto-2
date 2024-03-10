@@ -29,13 +29,15 @@ body{
 .Log_in h1{
     font-size: 36px;
     text-align: center;
-
+    box-shadow: #fff;
 }
 
 .logo{
     position: relative;
-    right: 30px;
+    margin-left: 125px;
+    width: 150px;
 }
+
 .input{
     position: relative;
     width: 100%;
@@ -62,6 +64,12 @@ body{
 .input_box::placeholder{
     color: #fff;
 }
+
+.input_box:focus{
+    outline: 1px solid white;
+    box-shadow: 0 0 10px white;
+}
+
 .icon{
     position: absolute;
     right: 20px;
