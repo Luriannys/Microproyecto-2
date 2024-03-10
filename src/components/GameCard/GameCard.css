@@ -5,8 +5,8 @@
     display :flex;
     flex-direction: column;
     color:whitesmoke;
-    border: 3px solid  rgb(13, 13, 133);
-    background-color: rgb(146, 157, 255);
+    border: 3px solid  rgb(191, 191, 245);
+    background-color: rgb(72, 62, 165);
     border-radius: 20px;
     padding: 15px;
     width: 350px;
@@ -17,4 +17,25 @@
         
     
 
+}
+
+.icon__{
+    position: absolute;
+    right: 80%;
+    top: 5%;
+    background-color: black;
+    width: 50px;
+    border-radius: 10px;
+    font-size: 40px;
+    
+
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: black;
+ 
 }
