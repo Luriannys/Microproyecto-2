@@ -1,5 +1,6 @@
 import ClubCard from "../ClubCard/ClubCard";
 import { RiGameFill } from "react-icons/ri";
+import "./GameCard.css";
 
 const GameCard = ({titulo,genero,descripcion}) => {
   return (
