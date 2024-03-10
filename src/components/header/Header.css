@@ -3,32 +3,55 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    position: absolute;
+    top:0;
+    width: 100%;
+    right: 0%;
+
     
     
+}
+
+.title1 {
+    
+    margin-top: 10px;
+    margin-right: 10px;
+    text-shadow: -1px 0 rgb(13, 13, 133), 0 1px rgb(13, 13, 133), 1px 0 rgb(13, 13, 133), 0 -1px rgb(13, 13, 133) ;
+    font-size: 45px;
+    
+    color: whitesmoke;
 }
 
 .Navbar{
     display: flex;
     list-style: none;
     font-size: large;
-    margin-bottom: 100px;
+    margin-bottom: 95px;
     color: whitesmoke;
+    margin-right: 250px;
     
 
     
 }
 
 .Navbar .li{
-    margin-left: 100px;
-    margin-right: 100px;
-    background: rgb(44, 44, 173);
-    padding: 15px;
+    margin-left: 70px;
+    margin-right: 70px;
+    background: rgb(245, 245, 245);
+    padding: 10px;
     border-radius: 30px;
-    width: 100px;
+    width: 125px;
     text-align: center;
-    color: whitesmoke;
-    border: 3px solid whitesmoke;
+    border: 3px solid rgb(146, 157, 255);
+    font-size:medium;
+    cursor: pointer;
     
+}
+.Navbar .li:hover{
+    background: rgb(116, 108, 192);
+    color: whitesmoke;
+    transition: ease-in-out .7s;
+
 }
 
 .logo{

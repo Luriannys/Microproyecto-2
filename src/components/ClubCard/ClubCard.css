@@ -1,0 +1,51 @@
+
+.container{
+    position: relative;
+    margin:35px;
+    display :flex;
+    flex-direction: column;
+    color:whitesmoke;
+    border: 3px solid  rgb(13, 13, 133);
+    background-color: rgb(146, 157, 255);
+    border-radius: 20px;
+    padding: 15px;
+    width: 350px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    cursor: pointer;
+        
+    
+
+}
+.title{
+    text-align: center;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: black;
+ 
+}
+.icon_{
+    position: absolute;
+    right: 80%;
+    top: 5%;
+    background-color: black;
+    width: 50px;
+    border-radius: 10px;
+    font-size: 40px;
+    
+
+
+}
+.Description{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+}
+
+.container:hover{
+    background-color: rgb(109, 122, 241);
+    transition: ease-in-out .5s;
+
+}

@@ -1,0 +1,9 @@
+.clubes_cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 70px;
+    margin-bottom: 5px;
+    
+}
