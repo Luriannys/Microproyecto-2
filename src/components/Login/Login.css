@@ -32,6 +32,10 @@ body{
     box-shadow: #fff;
 }
 
+::-ms-reveal{
+    filter: invert(100%);
+}
+
 .logo{
     position: relative;
     margin-left: 125px;

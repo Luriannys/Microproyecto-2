@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import './ClubCard.css'
 import {IoLogoGameControllerB } from "react-icons/io";
 
 
 
 
-const GameCard = ({ClubName, description, videojuegos}) => {
+const ClubCard = ({ClubName, description, videojuegos}) => {
   return (
     <><div className='container'>
           <h3 className='title'>{ClubName}</h3>
@@ -23,4 +24,4 @@ const GameCard = ({ClubName, description, videojuegos}) => {
   )
  
   }
-export default GameCard
+export default ClubCard

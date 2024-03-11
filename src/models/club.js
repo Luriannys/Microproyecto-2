@@ -15,3 +15,18 @@ export class Club {
         }
     }
 }
+
+export const clubConverter = {
+    toFirestore: (club) => {
+        return {
+            nombre: club.nombre,
+            description: club.description,
+            videojuegos: club.videojuegos
+            };
+    },
+    
+    fromFirestore: (snapshot, options) => {
+        const data = snapshot.data(options);
+        return new Club(data.nombre, data.description, data.videojuegos);
+    }
+};
