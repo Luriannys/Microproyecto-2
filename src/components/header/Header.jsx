@@ -7,7 +7,7 @@ import { LOGIN_URL } from '../../constants/url.js'
 import { useNavigate } from 'react-router-dom';
 const auth = getAuth(appFirebase)
 
-const Header = () => {
+const Header = ({text}) => {
 
   const navigate = useNavigate();
 
@@ -21,12 +21,11 @@ const Header = () => {
     }
   };
   
-
   return (
     <div className='head'>
       <img className="logo" src={logo} alt=" Logo" />
-      <div >
-        <h6 className="title1">  BIENVENIDO A LA DIMENSION GAMER ...</h6>
+      <div>
+        <h6 className="title1"> {text}</h6>
         <div className="Navbar">
           <li className='li'> <a href='#'>Inicio</a></li>
           <li className='li'> <a href='#'>Clubes</a></li>

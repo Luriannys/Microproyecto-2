@@ -1,22 +1,49 @@
 import './Club.css'
 import GameCard from '../GameCard/GameCard'
+import Header from '../header/Header'
+import {useState} from "react"
 
 
 const Club = ({ClubName,descripcion,videojuegos}) => {
+  const [Joined,Set_Joined] = useState(false); 
+  const text = Joined ? "Ya eres miembro" : "Unirse";
+  const buttomClassName= Joined ? "join btn_Joined" : "join btn_no" ;
+  const handleClick = () => {
+    Set_Joined(!Joined)
+  }
+
   return (
     <>
-    <div><Header/></div>
-    <div>
-        <h1>{ClubName}</h1>
+    
+    <div><Header text=""/></div>
+    <div className='info'>
+      <div className='title_Club'>
+          <h1>{ClubName}</h1>
+      </div>
+      <div className='desc'><p>{descripcion}</p></div>
+      <button className={buttomClassName} onClick={handleClick}>{text}</button>
     </div>
-    <div><p>{descripcion}</p></div>
-    <div>
-      <GameCard titulo="HADES" genero="Roguelike" descripcion="Embarcate en un viaje al inframudo y desafia y bla bla bla"/> 
-      <GameCard titulo="Mario" genero="bello" descripcion="Embarcate en un viaje al insfzdxhgjfmhkuframudo y desafia y bla bla bla"/>   
-      <GameCard titulo="BROOS" genero="locuraaa" descripcion="Embarcate en un viaje al iderfgbrdfhgrdfhnframudo y desafia y bla bla bla"/>   
-      <GameCard titulo="JEEESUS" genero="maikike" descripcion="Embarcate en un viaje al asdfbghcyjmu.linframudo y desafia y bla bla bla"/>     
+
+    <div className='container_gamecards'>
+      
+    
+      <div className='Cards'>
+      {videojuegos.map((videojuego) => (
+          <GameCard  
+            key={videojuego.id}
+            titulo={videojuego.nombre} 
+            genero={videojuego.genero} 
+            descripcion={videojuego.Descripcion}  
+          />
+        ))}
+      </div>
     </div>
-    <button>UNIRSE</button>
+    
+    
+    
+    
+    
+    
     </> 
   )
 }

@@ -1,24 +1,26 @@
-// import ClubCard from "../ClubCard/ClubCard";
-// import { RiGameFill } from "react-icons/ri";
-// import "./GameCard.css";
 
-// const GameCard = ({titulo,genero,descripcion}) => {
-//   return (
-//     <div className='Game_container'>
-//       <h3 className='title'>{titulo}</h3>
-//       <RiGameFill className="icon__"/>
-//         <div className='Genre'>
-//               <p>Género:{"" +genero}</p>
-//         </div>
-//         <div>
-//             <p>{descripcion}</p>
-//         </div>
+import { RiGameFill } from "react-icons/ri";
+import "./GameCard.css";
 
-//     </div>
-//   );
-// };
+const GameCard = ({titulo,genero,descripcion}) => {
+  return (
+    <div className='Game_container'>
+      <div className="t"><h3>{titulo}</h3></div>
+      <RiGameFill className="icon__"/>
+      <div className="int">
+        <div className='Genre'>
+              <p><strong>Género:</strong>{" " +genero}</p>
+        </div>
+        <div className="Descript">
+            <p>{"'" +descripcion+"'"}</p>
+        </div>
+        </div>
+
+     </div>
+   );
+ };
 
 
  
 
-// export default GameCard 
+export default GameCard 

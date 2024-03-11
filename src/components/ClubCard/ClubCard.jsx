@@ -4,6 +4,21 @@ import {IoLogoGameControllerB } from "react-icons/io";
 
 
 
+const gamedicc = [{"id": "1","nombre": "the witcheeer",
+"genero" : "RPG",
+"Descripcion" : "un juego que te gustara bebe"                    
+},{"id": "2","nombre": "tMARIC COLITAS",
+"genero" : "RPM",
+"Descripcion" : "un juego que NO te gustara bebe"                    
+},{"id": "3","nombre": "fucccccking gamin parte 3",
+"genero" : "lupus",
+"Descripcion" : "un juego que te hara sonrojar  bebesuki"                    
+} ];
+
+const diccionarioVideojuegos = gamedicc.reduce((obj, videojuego) => {
+  obj[videojuego.id] = videojuego;
+  return obj;
+}, {});
 
 const ClubCard = ({ClubName, description, videojuegos}) => {
   return (
@@ -14,7 +29,9 @@ const ClubCard = ({ClubName, description, videojuegos}) => {
               <p>{description}</p>
           </div>
           <div>Videojuegos:
-              {videojuegos}
+            {videojuegos.map(id => (
+            <p key={id}>{diccionarioVideojuegos[id].nombre}</p>
+        ))}
           </div>
       </div>
       

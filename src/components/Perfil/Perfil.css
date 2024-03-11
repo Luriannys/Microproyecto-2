@@ -1,0 +1,108 @@
+.container_user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    background-color: whitesmoke;
+    margin-left: 850px;
+
+
+}
+.saludo{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 3px;
+    width: 170px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.icono{
+    font-size: 100px;
+    position: absolute;
+    bottom: 66%;
+    background-color: whitesmoke;
+    border-radius: 80px;
+    
+  
+}
+.icono2{
+    font-size: 30px;
+    position: absolute;
+    bottom: 57%;
+    left: 71%;
+   
+
+    
+}
+.icono3{
+    font-size: 32px;
+    position: absolute;
+    bottom: 43%;
+
+}
+.divname{
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+   
+}
+.videojuego_fav{
+    margin-top: 40px;
+
+}
+
+.modify{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 38%;
+    right: 50%;
+    border: 3px solid whitesmoke;
+    border-radius: 15px;
+    padding: 20px;
+
+}
+
+.Imput{
+    margin-top: 10px;
+    color: whitesmoke;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.imput_box{
+  margin-left: 6px;
+  border-radius: 7px;
+  height: 25px; 
+  padding: 3px; 
+  
+}
+.h4{
+    margin-bottom: 20px;
+    color: whitesmoke;
+    font-size: 30px;
+    position: absolute;
+    top: 30%;
+    right: 70%;
+}
+
+.btn_guardar{
+    padding: 10px;
+    position: absolute;
+    top: 70%;
+    right: 60%;
+    color: black;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.btn_guardar:hover{
+    background-color: rgb(108, 180, 156);   
+    cursor: pointer;
+    transition: ease-in-out .5s; 
+}
