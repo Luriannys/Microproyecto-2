@@ -1,5 +1,5 @@
 // Modela el objeto Videojuego
-export class Videojuego {
+export default class Videojuego {
 
     constructor(title, genero, description){
         this.title = title
