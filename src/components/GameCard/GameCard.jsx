@@ -1,17 +1,19 @@
-import ClubCard from "../ClubCard/ClubCard";
+
 import { RiGameFill } from "react-icons/ri";
 import "./GameCard.css";
 
 const GameCard = ({titulo,genero,descripcion}) => {
   return (
     <div className='Game_container'>
-      <h3 className='title'>{titulo}</h3>
+      <div className="t"><h3>{titulo}</h3></div>
       <RiGameFill className="icon__"/>
+      <div className="int">
         <div className='Genre'>
-              <p>Género:{"" +genero}</p>
+              <p><strong>Género:</strong>{" " +genero}</p>
         </div>
-        <div>
-            <p>{descripcion}</p>
+        <div className="Descript">
+            <p>{"'" +descripcion+"'"}</p>
+        </div>
         </div>
 
     </div>

@@ -1,7 +1,7 @@
 
 .container{
     position: relative;
-    margin:35px;
+    margin:30px;
     display :flex;
     flex-direction: column;
     color:whitesmoke;
@@ -49,3 +49,4 @@
     transition: ease-in-out .5s;
 
 }
+
