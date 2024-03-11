@@ -28,12 +28,12 @@
 }
 .icon_{
     position: absolute;
-    right: 80%;
-    top: 5%;
+    right: 90%;
+    top: -4%;
     background-color: black;
     width: 50px;
     border-radius: 10px;
-    font-size: 40px;
+    font-size: 49px;
     
 
 
@@ -50,3 +50,6 @@
 
 }
 
+.gaminn{
+    color: black;
+}

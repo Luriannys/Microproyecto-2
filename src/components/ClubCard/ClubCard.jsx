@@ -28,9 +28,9 @@ const ClubCard = ({ClubName, description, videojuegos}) => {
           <div className='Description'>
               <p>{description}</p>
           </div>
-          <div>Videojuegos:
+          <div className='gaminn'><strong> Videojuegos: </strong>
             {videojuegos.map(id => (
-            <p key={id}>{diccionarioVideojuegos[id].nombre}</p>
+            <p key={id}>{">"+" "+ diccionarioVideojuegos[id].nombre}</p>
         ))}
           </div>
       </div>
