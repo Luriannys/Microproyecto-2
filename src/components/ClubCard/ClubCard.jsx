@@ -1,26 +1,41 @@
 /* eslint-disable react/prop-types */
 import './ClubCard.css'
 import {IoLogoGameControllerB } from "react-icons/io";
+import { query, getDocs } from 'firebase/firestore';
+import appFirebase from '../../credenciales.js';
+import {useState, useEffect} from 'react';
+import { collection, getFirestore } from "firebase/firestore"
 
 
 
-const gamedicc = [{"id": "1","nombre": "the witcheeer",
-"genero" : "RPG",
-"Descripcion" : "un juego que te gustara bebe"                    
-},{"id": "2","nombre": "tMARIC COLITAS",
-"genero" : "RPM",
-"Descripcion" : "un juego que NO te gustara bebe"                    
-},{"id": "3","nombre": "fucccccking gamin parte 3",
-"genero" : "lupus",
-"Descripcion" : "un juego que te hara sonrojar  bebesuki"                    
-} ];
+const db = getFirestore(appFirebase);
 
-const diccionarioVideojuegos = gamedicc.reduce((obj, videojuego) => {
+const ClubCard = ({ClubName, description, videojuegos}) => {
+  
+const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const q = query(collection(db, "videojuegos"));
+      const querySnapshot = await getDocs(q);
+      const titles = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        data.id = doc.id;
+        titles.push(data);
+      });      
+      setGames(titles);
+    };
+    fetchData();
+  }, []);
+
+const diccionarioVideojuegos = games.reduce((obj, videojuego) => {
   obj[videojuego.id] = videojuego;
   return obj;
 }, {});
+console.log(diccionarioVideojuegos);
 
-const ClubCard = ({ClubName, description, videojuegos}) => {
+  
   return (
     <><div className='container'>
           <h3 className='title'>{ClubName}</h3>
@@ -29,9 +44,11 @@ const ClubCard = ({ClubName, description, videojuegos}) => {
               <p>{description}</p>
           </div>
           <div className='gaminn'><strong> Videojuegos: </strong>
-            {videojuegos.map(id => (
-            <p key={id}>{">"+" "+ diccionarioVideojuegos[id].nombre}</p>
-        ))}
+          {videojuegos.map(ID => (
+  diccionarioVideojuegos[ID] ? <p key={ID}>{">"+" "+ diccionarioVideojuegos[ID].titulo}</p> : null
+))}
+
+
           </div>
       </div>
       

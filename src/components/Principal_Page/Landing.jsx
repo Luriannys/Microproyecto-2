@@ -1,21 +1,41 @@
 import ClubCard from "../ClubCard/ClubCard"
 import Header from "../header/Header"
+import { query, getDocs } from 'firebase/firestore';
+import appFirebase from '../../credenciales.js';
 import "./Landing.css"
+import {useState, useEffect} from 'react';
+import { collection, getFirestore } from "firebase/firestore"
 
-const clubes= [{"ID": "1","nombre": "club dinamita 3",
-"descripcion" : "Rhola somos dinamit pura",
-"videojuegos" : ["1","2","3"]},{"ID": "2","nombre": "club dinamita 3456hhg",
-"descripcion" : "Rhola somos dinamit pura multiplicado por 3",
-"videojuegos" : ["1","2"]}           
-];
+
+const db = getFirestore(appFirebase);
+
+
 const Landing = () => {
+  const [clubs, setClubes] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const q = query(collection(db, "clubes"));
+      const querySnapshot = await getDocs(q);
+      const titles = [];
+      querySnapshot.forEach((doc) => {
+        titles.push(doc.data());
+      });
+      setClubes(titles);
+    };
+    fetchData();
+  }, []);
+
+  
+
+
   return (
     <>
     
     <div><Header text=" BIENVENIDO A LA DIMENSION GAMER ..." />
     </div>
     <div className="clubes_cards">
-        {clubes.map((club)=> (
+        {clubs.map((club)=> (
           <ClubCard 
           key= {club.ID}
           ClubName= {club.nombre}

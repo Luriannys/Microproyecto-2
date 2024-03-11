@@ -8,7 +8,7 @@
     border: 3px solid  rgb(13, 13, 133);
     background-color: rgb(146, 157, 255);
     border-radius: 20px;
-    padding: 15px;
+    padding: 10px;
     width: 350px;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -28,8 +28,8 @@
 }
 .icon_{
     position: absolute;
-    right: 90%;
-    top: -4%;
+    right: 105%;
+    top: 0%;
     background-color: black;
     width: 50px;
     border-radius: 10px;

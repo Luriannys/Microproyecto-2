@@ -22,6 +22,7 @@ import { getAuth } from 'firebase/auth';
 
   Ejemplo para club view <Club ClubName="Club supernenas" descripcion="bienvenido a este maravilloso club jajajjajajaa disfrutalo nene" videojuegos={videogames}/>*/
 function App() {
+ 
 
   return (
     <BrowserRouter>
