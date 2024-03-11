@@ -1,22 +1,22 @@
-import {useState, useEffect} from 'react';
-import "./Register.css"
-const logo = 'src/assets/89-896782_gamer-png.png'
-import { FaUser } from "react-icons/fa"
-import { FcGoogle } from "react-icons/fc"
-import { IoIosMail } from "react-icons/io"
+import { useState, useEffect } from 'react';
+import "./Register.css";
+import { FaUser } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { IoIosMail } from "react-icons/io";
 import { IoGameController } from "react-icons/io5";
-import { collection, getFirestore } from "firebase/firestore"
-
-
-import { FaAt } from 'react-icons/fa'
+import { FaAt } from 'react-icons/fa';
 import { FaUserFriends } from "react-icons/fa";
-import appFirebase from '../../credenciales.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth'
-import { Link, useNavigate } from 'react-router-dom'
-import { LOGIN_URL, LANDING_URL } from '../../constants/url.js'
+import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { LOGIN_URL, LANDING_URL } from '../../constants/url.js';
 import { query, getDocs } from 'firebase/firestore';
-const auth = getAuth()
+import appFirebase from '../../credenciales.js'
+import Usuario from '../../models/usuario.js';
 
+
+const auth = getAuth()
+const logo = 'src/assets/89-896782_gamer-png.png'
 
 
 const db = getFirestore(appFirebase);
@@ -25,6 +25,14 @@ const db = getFirestore(appFirebase);
 const Register = () => {
 
   const [games, setGames] = useState([]);
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [selectedGame, setSelectedGame] = useState('');
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,20 +44,20 @@ const Register = () => {
       });
       setGames(titles);
     };
-  
+
     fetchData();
   }, []);
-  
-  
+
+
   const Select = () => {
     const [selectedGame, setSelectedGame] = useState('');
-  
+
     const handleChange = (e) => {
       setSelectedGame(e.target.value);
     };
-  
+
     return (
-      <select value={selectedGame} onChange={handleChange} className='select' defaultValue = "Videojuego favorito" >
+      <select value={selectedGame} onChange={handleChange} className='select' >
         {games.map((game) => (
           <option key={game}>{game}</option>
         ))}
@@ -59,7 +67,6 @@ const Register = () => {
 
 
 
-  const navigate = useNavigate();
 
   // Inicio con Google
   const handleLoginWithGoogle = async () => {
@@ -73,18 +80,34 @@ const Register = () => {
     }
   };
 
-  const functAutentication = async (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
-    const correo = e.target.email.value;
-    const contraseña = e.target.password.value;
-    try {
-      /**REGISTRAR USUARIO */
-      await createUserWithEmailAndPassword(auth, correo, contraseña)
-      navigate(LANDING_URL)
-    } catch (error) {
-      alert("Asegúrese que la contraseña tenga mas de 8 caracteres " + error)
+
+    if (!nombre || !apellido || !username || !email || !password || !selectedGame) {
+      alert('Por favor, completa todos los campos.');
+      return;
     }
-  }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      const nuevoUsuario = new Usuario(nombre, apellido, username, email, selectedGame);
+
+      await addDoc(collection(db, 'usuarios'), {
+        nombre: nuevoUsuario.nombre,
+        apellido: nuevoUsuario.apellido,
+        username: nuevoUsuario.username,
+        email: nuevoUsuario.email,
+        videojuegoFavorito: nuevoUsuario.videojuegofav,
+      });
+      console.log(nuevoUsuario);
+      navigate(LANDING_URL);
+    } catch (error) {
+      alert("Asegúrese que la contraseña tenga mas de 8 caracteres " + error);
+    }
+  };
+
   return (
     <div className='Register'>
       <img className="logo"
@@ -93,13 +116,14 @@ const Register = () => {
 
 
       <form className="form"
-        onSubmit={functAutentication}>
+        onSubmit={handleRegistration}>
         <h1>Registro</h1>
 
         <div className='input'>
           <input className='input_box'
             type="text"
             placeholder="Nombre"
+            onChange={(e) => setNombre(e.target.value)}
             required />
           <FaUser className='icon' />
         </div>
@@ -108,6 +132,7 @@ const Register = () => {
           <input className='input_box'
             type="text"
             placeholder="Apellido"
+            onChange={(e) => setApellido(e.target.value)}
             required />
           <FaUserFriends className="icon" />
         </div>
@@ -116,17 +141,19 @@ const Register = () => {
           <input className='input_box'
             type="text"
             placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
             required />
           <FaAt className="icon" />
         </div>
 
-        
+
 
         <div className='input'>
           <input className='input_box'
             type="email"
             placeholder="Correo electrónico"
             id="email"
+            onChange={(e) => setEmail(e.target.value)}
             required />
           <IoIosMail className="icon" />
 
@@ -137,12 +164,14 @@ const Register = () => {
             type="Password"
             placeholder='Contraseña'
             id="password"
+            onChange={(e) => setPassword(e.target.value)}
             required />
         </div>
 
         <div className="input"
-          id="games">
-          <Select/>
+          id="games"
+          onChange={(e) => setSelectedGame(e.target.value)}>
+          <Select />
           <IoGameController className="icon" />
         </div>
 

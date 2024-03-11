@@ -1,12 +1,12 @@
 // Modela el objeto usuario
-export class Usuario {
+export default class Usuario {
 
-    constructor(nombre, apellido, username, email, videojuegoPref ){
+    constructor(nombre, apellido, username, email, videojuegofav ){
         this.nombre = nombre
         this.apellido = apellido
         this.username = username
         this.email = email
-        this.videojuegoPref = videojuegoPref
+        this.videojuegofav = videojuegofav
     }
 
     toObject(){
@@ -15,7 +15,7 @@ export class Usuario {
             apellido: this.apellido,
             username: this.username,
             email: this.email,
-            videojuegoPref: this.videojuegoPref,
+            videojuegofav: this.videojuegofav,
         }
     }
 }

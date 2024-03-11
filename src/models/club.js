@@ -1,5 +1,5 @@
 // Modela el objeto club
-export class Club {
+export default class Club {
 
     constructor(nombre, description, videojuegos){
         this.nombre = nombre
