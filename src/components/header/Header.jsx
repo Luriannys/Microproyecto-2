@@ -23,7 +23,7 @@ const Header = ({text}) => {
   
   return (
     <div className='head'>
-      <img className="logo" src={logo} alt=" Logo" />
+      <img className="logo_head" src={logo} alt=" Logo" />
       <div>
         <h6 className="title1"> {text}</h6>
         <div className="Navbar">
