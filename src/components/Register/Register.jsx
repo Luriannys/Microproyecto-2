@@ -15,6 +15,7 @@ import appFirebase from '../../credenciales.js'
 import Usuario from '../../models/usuario.js';
 
 
+
 const auth = getAuth()
 const logo = 'src/assets/89-896782_gamer-png.png'
 
@@ -93,7 +94,7 @@ const Register = () => {
       const user = userCredential.user;
 
       const nuevoUsuario = new Usuario(nombre, apellido, username, email, selectedGame);
-
+      
       await addDoc(collection(db, 'usuarios'), {
         nombre: nuevoUsuario.nombre,
         apellido: nuevoUsuario.apellido,
@@ -197,7 +198,9 @@ const Register = () => {
       </form>
 
     </div>
+    
   )
+  
 }
 
 export default Register
