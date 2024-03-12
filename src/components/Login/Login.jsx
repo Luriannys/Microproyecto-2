@@ -8,7 +8,7 @@ import { REGISTER_URL, LANDING_URL } from '../../constants/url.js'
 import { useNavigate, Link } from 'react-router-dom';
 
 
-const logo = 'src/assets/89-896782_gamer-png.png'
+const logo = 'https://www.pngkey.com/png/full/89-896782_gamer-png.png'
 
 const Login = () => {
 
