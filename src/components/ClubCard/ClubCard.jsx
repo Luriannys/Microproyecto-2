@@ -10,7 +10,7 @@ import { collection, getFirestore } from "firebase/firestore"
 
 const db = getFirestore(appFirebase);
 
-const ClubCard = ({ClubName, description, videojuegos}) => {
+const ClubCard = ({ClubName, description, videojuegos, onClick}) => {
   
 const [games, setGames] = useState([]);
 
@@ -37,7 +37,7 @@ console.log(diccionarioVideojuegos);
 
   
   return (
-    <><div className='container'>
+    <><div className='container' onClick={onClick}>
           <h3 className='title'>{ClubName}</h3>
           <IoLogoGameControllerB className='icon_'/>
           <div className='Description'>

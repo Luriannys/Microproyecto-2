@@ -1,7 +1,7 @@
 
 .container{
-    position: relative;
-    margin:30px;
+    position:relative;
+    margin:15px;
     display :flex;
     flex-direction: column;
     color:whitesmoke;

@@ -36,7 +36,7 @@ function App() {
         <Route path={CLUB_URL} element={<Club />} />
         <Route path={GAMES_URL} element={<Browser />} />
         <Route path={PROFILE_URL} element={<Perfil />} />
-        
+        <Route path={CLUB_URL} element={<Club />} />
         {/* Opcional: Ruta para página no encontrada */}
         {/* <Route path="*" element={<h1>NOT FOUND</h1>} /> */}
       </Routes>

@@ -1,17 +1,18 @@
-import ClubCard from "../ClubCard/ClubCard"
-import Header from "../header/Header"
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import ClubCard from "../ClubCard/ClubCard";
+import Club from "../Club/Club.jsx";
+import Header from "../header/Header";
 import { query, getDocs } from 'firebase/firestore';
 import appFirebase from '../../credenciales.js';
-import "./Landing.css"
-import {useState, useEffect} from 'react';
-import { collection, getFirestore } from "firebase/firestore"
-
-
+import "./Landing.css";
+import { useState, useEffect } from 'react';
+import { collection, getFirestore } from "firebase/firestore";
 const db = getFirestore(appFirebase);
 
 
 const Landing = () => {
   const [clubs, setClubes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
