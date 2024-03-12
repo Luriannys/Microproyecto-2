@@ -17,7 +17,7 @@ import Usuario from '../../models/usuario.js';
 
 
 const auth = getAuth()
-const logo = 'src/assets/89-896782_gamer-png.png'
+const logo = 'https://www.pngkey.com/png/full/89-896782_gamer-png.png'
 
 
 const db = getFirestore(appFirebase);

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import './Header.css'
-const logo = 'src/assets/89-896782_gamer-png.png'
+const logo = 'https://www.pngkey.com/png/full/89-896782_gamer-png.png'
 import appFirebase from '../../credenciales.js'
 import { getAuth, signOut } from 'firebase/auth'
 import { LANDING_URL, LOGIN_URL, GAMES_URL, PROFILE_URL } from '../../constants/url.js'
@@ -23,7 +23,7 @@ const Header = ({text}) => {
   
   return (
     <div className='head'>
-      <img className="logo" src={logo} alt=" Logo" />
+      <img className="logo_head" src={logo} alt=" Logo" />
       <div>
         <h6 className="title1"> {text}</h6>
         <div className="Navbar">
